@@ -32,11 +32,11 @@ class Handler2 implements URLHandler {
                 if(parameters[0].equals("s")){
                     String s = "";
                     for(int i = 0; i < searches.size(); i++){
-                        if(searches.get(i).contains(parameters[1])){
-                            s = s + searches.get(i) + " ";
+                        if(searches.get(i).toLowerCase().contains(parameters[1].toLowerCase())){
+                            s = s + searches.get(i) + ", ";
                         }
                     }
-                    return s;
+                    return "Searches containing " + parameters[1] + ": " + s.substring(0, s.length()-2);
                 }
             }
             return "404 Not Found!";
